@@ -1,0 +1,78 @@
+﻿<Window x:Class="Projekt1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1"
+        xmlns:gmaps="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+        mc:Ignorable="d"
+        
+        Title="Aplikacja Turystyczna" Height="800" Width="1400" MinHeight="800" MinWidth="1400">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Stretch="Fill" Source="pack://application:,,,/Resources/tlo.jpg" Grid.Column="1"/>
+        <TextBlock Foreground="Black" FontWeight="DemiBold" TextAlignment="Center" Grid.Column="1" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+            Aplikacja umożliwiająca szukanie<LineBreak />
+            miejsc wartych odwiedzenia <LineBreak />
+            Wpisz miasto
+        </TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Wykonanie: Mariusz Bar" FontSize="25" FontWeight="DemiBold" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
+
+        <gmaps:GMapControl x:Name="mapView" Loaded="mapView_Loaded" Grid.Column="1" />
+        
+        <Button Style="{StaticResource ButtonStyle}" Content="Ustaw Znacznik" x:Name="PinButton" Click="PinButton_Click" Visibility="Hidden" Grid.Column="1" Height="50" Width="280" VerticalAlignment="Bottom" Margin="20" FontSize="30"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+
+            <Border Background="DarkGreen" Grid.RowSpan="8" />
+
+            <TextBox GotFocus="SearchBar_GotFocus" Text="Podaj miasto" Grid.Row="1" x:Name="SearchBar" TextAlignment="Center" Height="50" Width="280" FontSize="30"/>
+
+            <DockPanel>
+                <Image Margin="0,10,0,0" Width="80" Grid.Row="0" Grid.Column="0" Source="pack://application:,,,/Resources/logo.jpg" />
+                <Label Background="DarkGreen" Content="EasyTravel" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="DemiBold" Foreground="White"/>
+            </DockPanel>
+            
+            <Label Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Content="FILTRY" FontSize="20" Foreground="White" FontWeight="DemiBold"/>
+            <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Odległość od znacznika (km)" FontSize="20" Foreground="White" FontWeight="DemiBold"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Style="{StaticResource ButtonStyle}" Grid.Column="0" x:Name="MapButtonSet" Click="MapButtonSet_Click" Content="Zaznacz" FontSize="18" Height="50" Width="130"/>
+                <Button Style="{StaticResource ButtonStyle}" Grid.Column="1" x:Name="MapButtonShow" Click="MapButtonShow_Click" Content="Mapa" FontSize="18" Height="50" Width="130"/>
+            </Grid>
+            <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" x:Name="SearchButton" Content="SZUKAJ" Click="SearchButton_Click" FontSize="25" Height="50" Width="280" />
+            
+            <DockPanel Grid.Row="5" Margin="0,10,20,20">
+                <TextBlock x:Name="odlegloscSliderWartosc" Text="{Binding ElementName=odlegloscSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="35" FontSize="20" Foreground="White"/>
+                <Slider x:Name="odlegloscSlider" Minimum="5" Maximum="100" Width="220" Value="5" TickFrequency="5" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+            </DockPanel>
+            
+            <ScrollViewer Grid.Row="6" Grid.Column="0">
+                <StackPanel x:Name="KategoriaMenuPanel">
+
+                </StackPanel>
+            </ScrollViewer>
+            
+        </Grid>
+        <Frame Name="PageFrame" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

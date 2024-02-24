@@ -1,0 +1,40 @@
+﻿<Page x:Class="Projekt1.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:control ="clr-namespace:Projekt1.Controls"
+      xmlns:local="clr-namespace:Projekt1"
+      xmlns:gmaps="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+      mc:Ignorable="d" 
+      Title="Page1" Height="auto" Width="auto" d:DesignHeight="591.263" d:DesignWidth="931.738">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="1" Background="White" />
+        <ScrollViewer Grid.Column="1">
+            <StackPanel x:Name="PozycjaKontrolek">
+                <Border Background="#E1E6E1">
+                    <Button x:Name="DodajMiejsceButton" Click="DodajMiejsceButton_Click" Style="{StaticResource ButtonStyle}" Height="40" Width="400" Content="Zaproponuj miejsce" FontSize="20" HorizontalAlignment="Center" Margin="30"/>
+                </Border>
+                
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid x:Name="GridMapPage2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+            <gmaps:GMapControl x:Name="mapView2" Loaded="mapView2_Loaded"/>
+            <control:MiejsceControl x:Name="MiejscePodMapa" Grid.Row="1" Height="auto" />
+            
+        </Grid>
+        <Button Style="{StaticResource ButtonStyle}" x:Name="Map2Button" Click="Map2Button_Click" Grid.Column="1" Height="40" Width="80" Content="MAPA" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="30"/>
+        <Frame Name="Page2Frame" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>

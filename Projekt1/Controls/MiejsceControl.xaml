@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Projekt1.Controls.MiejsceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekt1.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Border Background="#E1E6E1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="2" BorderBrush="DarkGreen"/>
+       
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Margin="10,0,10,0" TextWrapping="Wrap" x:Name="MiejsceOpis" Grid.Row="0" Grid.Column="1" Text="" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="AdresText" Grid.Row="1" Text="" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
+            <TextBlock  x:Name="MiejsceAdres" Grid.Row="2" Text="" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <TextBlock x:Name="MiejsceTitle" Grid.Row="0" Grid.Column="1" Text="" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Image x:Name="MiejsceZdjecie" Grid.Column="0" Grid.RowSpan="2" Margin="20,10,10,10" Height="auto" Width="auto" />
+    </Grid>
+</UserControl>
