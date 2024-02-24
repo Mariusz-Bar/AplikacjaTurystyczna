@@ -1,3 +1,5 @@
+<h1>Testing the app</h1>
+The database covers only places located in Poland in the province "Opolskie", for the best results i recommend searchnig the place "Opole".
 <h1>Setting Up the Database</h1>
 To run this application locally, you'll need to set up a database using XAMPP and import the provided SQL dump. Follow the steps below to get started:
 
